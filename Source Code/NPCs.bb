@@ -2461,7 +2461,7 @@ Function UpdateNPCs()
 							n\State = 4
 						EndIf
 						;[End Block]
-					Case 4
+					Case 4 ;standing and looking around randomly
 						;[Block]
 						AnimateNPC(n,77,201,0.2)
 						;Animate2(n\obj, AnimTime(n\obj), 923, 1354, 0.2)
@@ -2474,7 +2474,7 @@ Function UpdateNPCs()
 						If dist < 15.0 Then
 							
 							If WrapAngle(EntityYaw(n\Collider)-DeltaYaw(n\Collider, Collider))<90 Then
-								If EntityVisible(pvt,Collider) Then n\State = 1
+								If EntityVisible(Collider, n\Collider) Then n\State = 1
 							EndIf
 							
 						EndIf
