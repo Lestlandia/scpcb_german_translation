@@ -7671,7 +7671,7 @@ Function DrawMenu()
 				y = y + 75*MenuScale
 				If (Not SelectedDifficulty\permaDeath) Then
 					If GameSaved Then
-						If DrawButton(x, y, 390*MenuScale, 60*MenuScale, "Lade Spiel") Then
+						If DrawButton(x, y, 390*MenuScale, 60*MenuScale, "Lade") Then
 							DrawLoading(0)
 							
 							MenuOpen = False
@@ -7715,7 +7715,7 @@ Function DrawMenu()
 						DrawFrame(x,y,390*MenuScale, 60*MenuScale)
 						Color (100, 100, 100)
 						AASetFont Font2
-						AAText(x + (390*MenuScale) / 2, y + (60*MenuScale) / 2, "Lade Spiel", True, True)
+						AAText(x + (390*MenuScale) / 2, y + (60*MenuScale) / 2, "Lade", True, True)
 					EndIf
 					y = y + 75*MenuScale
 			EndIf
@@ -7727,7 +7727,7 @@ Function DrawMenu()
 			Else
 				y = y+104*MenuScale
 				If GameSaved And (Not SelectedDifficulty\permaDeath) Then
-					If DrawButton(x, y, 390*MenuScale, 60*MenuScale, "Lade Spiel") Then
+					If DrawButton(x, y, 390*MenuScale, 60*MenuScale, "Lade") Then
 						DrawLoading(0)
 						
 						MenuOpen = False
@@ -7770,9 +7770,9 @@ Function DrawMenu()
 				Else
 					DrawButton(x, y, 390*MenuScale, 60*MenuScale, "")
 					Color 50,50,50
-					AAText(x + 185*MenuScale, y + 30*MenuScale, "Load Game", True, True)
+					AAText(x + 185*MenuScale, y + 30*MenuScale, "Load", True, True)
 				EndIf
-				If DrawButton(x, y + 80*MenuScale, 390*MenuScale, 60*MenuScale, "Quit to Menu") Then
+				If DrawButton(x, y + 80*MenuScale, 390*MenuScale, 60*MenuScale, "Hauptmenü") Then
 					NullGame()
 					MenuOpen = False
 					MainMenuOpen = True
@@ -7784,7 +7784,7 @@ Function DrawMenu()
 			EndIf
 			
 			If KillTimer >= 0 And (Not MainMenuOpen)
-				If DrawButton(x, y, 390*MenuScale, 60*MenuScale, "Quit") Then
+				If DrawButton(x, y, 390*MenuScale, 60*MenuScale, "Beenden") Then
 					QuitMSG = 1
 				EndIf
 			EndIf
