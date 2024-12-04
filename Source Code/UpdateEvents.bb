@@ -422,7 +422,7 @@ Function UpdateEvents()
 									ShowEntity Collider
 									DropSpeed = 0
 									e\EventState3 = 15
-									Msg = "Pick up the paper on the desk."
+									Msg = "Hol dir den Zettel vom Schreibtisch."
 									MsgTimer=70*7
 								EndIf
 								
