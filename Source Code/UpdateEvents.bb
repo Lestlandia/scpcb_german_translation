@@ -67,11 +67,11 @@ Function UpdateEvents()
 						CameraFogRange(Camera, CameraFogNear, CameraFogFar)
 						CameraFogMode(Camera, 1)
 						If SelectedDifficulty\saveType = SAVEANYWHERE Then
-							Msg = "Press "+KeyName(KEY_SAVE)+" to save."
+							Msg = "Drücke "+KeyName(KEY_SAVE)+" um zu speichern."
 							MsgTimer = 70*4
 							;SetSaveMSG("Press "+KeyName(KEY_SAVE)+" to save.")
 						ElseIf SelectedDifficulty\saveType = SAVEONSCREENS Then
-							Msg = "Saving is only permitted on clickable monitors scattered throughout the facility."
+							Msg = "Speichern ist nur an diversen Orten der Anlage auf Anklickbaren Monitoren gestattet."
 							MsgTimer = 70 * 8
 							;SetSaveMSG("Saving is only permitted on clickable monitors scattered throughout the facility.")
 						EndIf
@@ -231,7 +231,7 @@ Function UpdateEvents()
                                                 PositionEntity Curr173\Collider, 0,0,0
                                             EndIf
 											ResetEntity Curr173\Collider
-											Msg = "Hold "+KeyName(KEY_SPRINT)+" to run."
+											Msg = "Halte "+KeyName(KEY_SPRINT)+" um zu rennen."
 											MsgTimer = 70*8
 										EndIf
 									EndIf
@@ -431,7 +431,7 @@ Function UpdateEvents()
 								
 							ElseIf e\EventState3 < 40
 								If Inventory(0)<>Null Then
-									Msg = "Press "+KeyName(KEY_INV)+" to open the inventory."
+									Msg = "Drücke "+KeyName(KEY_INV)+" um das Inventar zu öffnen."
 									MsgTimer=70*7
 									e\EventState3 = 40
 									Exit
@@ -1014,7 +1014,7 @@ Function UpdateEvents()
 							If IntroSFX(17)<>0 Then
 								If EntityVisible(Curr173\Collider, Collider) Then
 									If EntityInView(Curr173\obj, Camera) Then
-										Msg = "Press "+KeyName(KEY_BLINK)+" to blink."
+										Msg = "Drücke "+KeyName(KEY_BLINK)+" um zu blinzeln."
 										MsgTimer = 70*4
 										PlaySound_Strict IntroSFX(17)
 										IntroSFX(17)=0
