@@ -1091,7 +1091,7 @@ Function UpdateMainMenu()
 							AAText(x + 20 * MenuScale, y + 10 * MenuScale, SavedMaps(i - 1))
 							AAText(x + 20 * MenuScale, y + (10+27) * MenuScale, SavedMapsAuthor(i - 1))
 							
-							If DrawButton(x + 400 * MenuScale, y + 20 * MenuScale, 100 * MenuScale, 30 * MenuScale, "Load", False) Then
+							If DrawButton(x + 400 * MenuScale, y + 20 * MenuScale, 100 * MenuScale, 30 * MenuScale, "Lade", False) Then
 								SelectedMap=SavedMaps(i - 1)
 								MainMenuTab = 1
 							EndIf

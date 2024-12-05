@@ -3177,9 +3177,9 @@ Repeat
 				EndIf
 			ElseIf SelectedDifficulty\saveType = SAVEONSCREENS
 				If SelectedScreen=Null And SelectedMonitor=Null Then
-					Msg = "Saving is only permitted on clickable monitors scattered throughout the facility."
+					Msg = "Speichern ist nur an diversen Orten der Anlage auf Anklickbaren Monitoren gestattet."
 					MsgTimer = 70 * 4
-					;SetSaveMSG("Saving is only permitted on clickable monitors scattered throughout the facility.")
+					;SetSaveMSG("Speichern ist nur an diversen Orten der Anlage auf Anklickbaren Monitoren gestattet.")
 				Else
 					RN$ = PlayerRoom\RoomTemplate\Name$
 					If RN$ = "173" Or (RN$ = "exit1" And EntityY(Collider)>1040.0*RoomScale) Or RN$ = "gatea"
@@ -5421,7 +5421,7 @@ Function DrawGUI()
 									Local added.Items = Null
 									Local b$ = SelectedItem\itemtemplate\tempname
 									Local b2$ = SelectedItem\itemtemplate\name
-									If (b<>"misc" And b<>"25ct" And b<>"coin" And b<>"key" And b<>"scp860" And b<>"scp714") Or (b2="Playing Card" Or b2="Mastercard") Then
+									If (b<>"misc" And b<>"25ct" And b<>"coin" And b<>"key" And b<>"scp860" And b<>"scp714") Or (b2="Spielkarte" Or b2="Mastercard") Then
 										For c% = 0 To Inventory(MouseSlot)\invSlots-1
 											If (Inventory(MouseSlot)\SecondInv[c] = Null)
 												If SelectedItem <> Null Then
@@ -5463,7 +5463,7 @@ Function DrawGUI()
 									added.Items = Null
 									b$ = SelectedItem\itemtemplate\tempname
 									b2$ = SelectedItem\itemtemplate\name
-									If (b<>"misc" And b<>"paper" And b<>"oldpaper") Or (b2="Playing Card" Or b2="Mastercard") Then
+									If (b<>"misc" And b<>"paper" And b<>"oldpaper") Or (b2="Spielkarte" Or b2="Mastercard") Then
 										For c% = 0 To Inventory(MouseSlot)\invSlots-1
 											If (Inventory(MouseSlot)\SecondInv[c] = Null)
 												If SelectedItem <> Null Then
@@ -7770,7 +7770,7 @@ Function DrawMenu()
 				Else
 					DrawButton(x, y, 390*MenuScale, 60*MenuScale, "")
 					Color 50,50,50
-					AAText(x + 185*MenuScale, y + 30*MenuScale, "Load", True, True)
+					AAText(x + 185*MenuScale, y + 30*MenuScale, "Lade", True, True)
 				EndIf
 				If DrawButton(x, y + 80*MenuScale, 390*MenuScale, 60*MenuScale, "Hauptmenü") Then
 					NullGame()
@@ -9590,88 +9590,88 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 					it2 = CreateItem("Strange Bottle", "veryfinefirstaid", x, y, z)
 			End Select
 			RemoveItem(item)
-		Case "Level 1 Key Card", "Level 2 Key Card", "Level 3 Key Card", "Level 4 Key Card", "Level 5 Key Card", "Key Card"
+		Case "Stufe 1 Schlüsselkarte", "Stufe 2 Schlüsselkarte", "Stufe 3 Schlüsselkarte", "Stufe 4 Schlüsselkarte", "Stufe 5 Schlüsselkarte", "Schlüsselkarte"
 			Select setting
 				Case "rough", "coarse"
 					d.Decals = CreateDecal(0, x, 8 * RoomScale + 0.005, z, 90, Rand(360), 0)
 					d\Size = 0.07 : ScaleSprite(d\obj, d\Size, d\Size)
 				Case "1:1"
-					it2 = CreateItem("Playing Card", "misc", x, y, z)
+					it2 = CreateItem("Spielkarte", "misc", x, y, z)
 				Case "fine"
 					Select item\itemtemplate\name
-						Case "Level 1 Key Card"
+						Case "Stufe 1 Schlüsselkarte"
 							Select SelectedDifficulty\otherFactors
 								Case EASY
-									it2 = CreateItem("Level 2 Key Card", "key2", x, y, z)
+									it2 = CreateItem("Stufe 2 Schlüsselkarte", "key2", x, y, z)
 								Case NORMAL
 									If Rand(5)=1 Then
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									Else
-										it2 = CreateItem("Level 2 Key Card", "key2", x, y, z)
+										it2 = CreateItem("Stufe 2 Schlüsselkarte", "key2", x, y, z)
 									EndIf
 								Case HARD
 									If Rand(4)=1 Then
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									Else
-										it2 = CreateItem("Level 2 Key Card", "key2", x, y, z)
+										it2 = CreateItem("Stufe 2 Schlüsselkarte", "key2", x, y, z)
 									EndIf
 							End Select
-						Case "Level 2 Key Card"
+						Case "Stufe 2 Schlüsselkarte"
 							Select SelectedDifficulty\otherFactors
 								Case EASY
-									it2 = CreateItem("Level 3 Key Card", "key3", x, y, z)
+									it2 = CreateItem("Stufe 3 Schlüsselkarte", "key3", x, y, z)
 								Case NORMAL
 									If Rand(4)=1 Then
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									Else
-										it2 = CreateItem("Level 3 Key Card", "key3", x, y, z)
+										it2 = CreateItem("Stufe 3 Schlüsselkarte", "key3", x, y, z)
 									EndIf
 								Case HARD
 									If Rand(3)=1 Then
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									Else
-										it2 = CreateItem("Level 3 Key Card", "key3", x, y, z)
+										it2 = CreateItem("Stufe 3 Schlüsselkarte", "key3", x, y, z)
 									EndIf
 							End Select
-						Case "Level 3 Key Card"
+						Case "Stufe 3 Schlüsselkarte"
 							Select SelectedDifficulty\otherFactors
 								Case EASY
 									If Rand(10)=1 Then
-										it2 = CreateItem("Level 4 Key Card", "key4", x, y, z)
+										it2 = CreateItem("Stufe 4 Schlüsselkarte", "key4", x, y, z)
 									Else
-										it2 = CreateItem("Playing Card", "misc", x, y, z)	
+										it2 = CreateItem("Spielkarte", "misc", x, y, z)	
 									EndIf
 								Case NORMAL
 									If Rand(15)=1 Then
-										it2 = CreateItem("Level 4 Key Card", "key4", x, y, z)
+										it2 = CreateItem("Stufe 4 Schlüsselkarte", "key4", x, y, z)
 									Else
-										it2 = CreateItem("Playing Card", "misc", x, y, z)	
+										it2 = CreateItem("Spielkarte", "misc", x, y, z)	
 									EndIf
 								Case HARD
 									If Rand(20)=1 Then
-										it2 = CreateItem("Level 4 Key Card", "key4", x, y, z)
+										it2 = CreateItem("Stufe 4 Schlüsselkarte", "key4", x, y, z)
 									Else
-										it2 = CreateItem("Playing Card", "misc", x, y, z)	
+										it2 = CreateItem("Spielkarte", "misc", x, y, z)	
 									EndIf
 							End Select
-						Case "Level 4 Key Card"
+						Case "Stufe 4 Schlüsselkarte"
 							Select SelectedDifficulty\otherFactors
 								Case EASY
-									it2 = CreateItem("Level 5 Key Card", "key5", x, y, z)
+									it2 = CreateItem("Stufe 5 Schlüsselkarte", "key5", x, y, z)
 								Case NORMAL
 									If Rand(4)=1 Then
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									Else
-										it2 = CreateItem("Level 5 Key Card", "key5", x, y, z)
+										it2 = CreateItem("Stufe 5 Schlüsselkarte", "key5", x, y, z)
 									EndIf
 								Case HARD
 									If Rand(3)=1 Then
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									Else
-										it2 = CreateItem("Level 5 Key Card", "key5", x, y, z)
+										it2 = CreateItem("Stufe 5 Schlüsselkarte", "key5", x, y, z)
 									EndIf
 							End Select
-						Case "Level 5 Key Card"	
+						Case "Stufe 5 Schlüsselkarte"	
 							Local CurrAchvAmount%=0
 							For i = 0 To MAXACHIEVEMENTS-1
 								If Achievements(i)=True
@@ -9684,19 +9684,19 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 							Select SelectedDifficulty\otherFactors
 								Case EASY
 									If Rand(0,((MAXACHIEVEMENTS-1)*3)-((CurrAchvAmount-1)*3))=0
-										it2 = CreateItem("Key Card Omni", "key6", x, y, z)
+										it2 = CreateItem("Schlüsselkarte Omni", "key6", x, y, z)
 									Else
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									EndIf
 								Case NORMAL
 									If Rand(0,((MAXACHIEVEMENTS-1)*4)-((CurrAchvAmount-1)*3))=0
-										it2 = CreateItem("Key Card Omni", "key6", x, y, z)
+										it2 = CreateItem("Schlüsselkarte Omni", "key6", x, y, z)
 									Else
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									EndIf
 								Case HARD
 									If Rand(0,((MAXACHIEVEMENTS-1)*5)-((CurrAchvAmount-1)*3))=0
-										it2 = CreateItem("Key Card Omni", "key6", x, y, z)
+										it2 = CreateItem("Schlüsselkarte Omni", "key6", x, y, z)
 									Else
 										it2 = CreateItem("Mastercard", "misc", x, y, z)
 									EndIf
@@ -9715,19 +9715,19 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 					Select SelectedDifficulty\otherFactors
 						Case EASY
 							If Rand(0,((MAXACHIEVEMENTS-1)*3)-((CurrAchvAmount-1)*3))=0
-								it2 = CreateItem("Key Card Omni", "key6", x, y, z)
+								it2 = CreateItem("Schlüsselkarte Omni", "key6", x, y, z)
 							Else
 								it2 = CreateItem("Mastercard", "misc", x, y, z)
 							EndIf
 						Case NORMAL
 							If Rand(0,((MAXACHIEVEMENTS-1)*4)-((CurrAchvAmount-1)*3))=0
-								it2 = CreateItem("Key Card Omni", "key6", x, y, z)
+								it2 = CreateItem("Schlüsselkarte Omni", "key6", x, y, z)
 							Else
 								it2 = CreateItem("Mastercard", "misc", x, y, z)
 							EndIf
 						Case HARD
 							If Rand(0,((MAXACHIEVEMENTS-1)*5)-((CurrAchvAmount-1)*3))=0
-								it2 = CreateItem("Key Card Omni", "key6", x, y, z)
+								it2 = CreateItem("Schlüsselkarte Omni", "key6", x, y, z)
 							Else
 								it2 = CreateItem("Mastercard", "misc", x, y, z)
 							EndIf
@@ -9735,7 +9735,7 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 			End Select
 			
 			RemoveItem(item)
-		Case "Key Card Omni"
+		Case "Schlüsselkarte Omni"
 			Select setting
 				Case "rough", "coarse"
 					d.Decals = CreateDecal(0, x, 8 * RoomScale + 0.005, z, 90, Rand(360), 0)
@@ -9744,22 +9744,22 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 					If Rand(2)=1 Then
 						it2 = CreateItem("Mastercard", "misc", x, y, z)
 					Else
-						it2 = CreateItem("Playing Card", "misc", x, y, z)			
+						it2 = CreateItem("Spielkarte", "misc", x, y, z)			
 					EndIf	
 				Case "fine", "very fine"
-					it2 = CreateItem("Key Card Omni", "key6", x, y, z)
+					it2 = CreateItem("Schlüsselkarte Omni", "key6", x, y, z)
 			End Select			
 			
 			RemoveItem(item)
-		Case "Playing Card", "Coin", "Quarter"
+		Case "Spielkarte", "Coin", "Quarter"
 			Select setting
 				Case "rough", "coarse"
 					d.Decals = CreateDecal(0, x, 8 * RoomScale + 0.005, z, 90, Rand(360), 0)
 					d\Size = 0.07 : ScaleSprite(d\obj, d\Size, d\Size)
 				Case "1:1"
-					it2 = CreateItem("Level 1 Key Card", "key1", x, y, z)	
+					it2 = CreateItem("Stufe 1 Schlüsselkarte", "key1", x, y, z)	
 			    Case "fine", "very fine"
-					it2 = CreateItem("Level 2 Key Card", "key2", x, y, z)
+					it2 = CreateItem("Stufe 2 Schlüsselkarte", "key2", x, y, z)
 			End Select
 			RemoveItem(item)
 		Case "Mastercard"
@@ -9777,9 +9777,9 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 					EntityType (it4\collider, HIT_ITEM)
 					EntityType (it5\collider, HIT_ITEM)
 				Case "1:1"
-					it2 = CreateItem("Level 1 Key Card", "key1", x, y, z)	
+					it2 = CreateItem("Stufe 1 Schlüsselkarte", "key1", x, y, z)	
 			    Case "fine", "very fine"
-					it2 = CreateItem("Level 2 Key Card", "key2", x, y, z)
+					it2 = CreateItem("Stufe 2 Schlüsselkarte", "key2", x, y, z)
 			End Select
 			RemoveItem(item)
 		Case "S-NAV 300 Navigator", "S-NAV 310 Navigator", "S-NAV Navigator", "S-NAV Navigator Ultimate"

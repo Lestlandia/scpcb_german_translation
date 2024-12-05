@@ -73,7 +73,7 @@ Function UpdateEvents()
 						ElseIf SelectedDifficulty\saveType = SAVEONSCREENS Then
 							Msg = "Speichern ist nur an diversen Orten der Anlage auf Anklickbaren Monitoren gestattet."
 							MsgTimer = 70 * 8
-							;SetSaveMSG("Saving is only permitted on clickable monitors scattered throughout the facility.")
+							;SetSaveMSG("Speichern ist nur an diversen Orten der Anlage auf Anklickbaren Monitoren gestattet.")
 						EndIf
 						
 						Curr173\Idle=False

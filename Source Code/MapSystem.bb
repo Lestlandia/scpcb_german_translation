@@ -2724,7 +2724,7 @@ Function FillRoom(r.Rooms)
 			;FreeEntity(d\buttons[0]) : d\buttons[0]=0
 			;FreeEntity(d\buttons[1]) : d\buttons[1]=0
 			
-			it = CreateItem("Level 2 Key Card", "key2", r\x - 914.0 * RoomScale, r\y + 137.0 * RoomScale, r\z + 61.0 * RoomScale)
+			it = CreateItem("Stufe 2 Schlüsselkarte", "key2", r\x - 914.0 * RoomScale, r\y + 137.0 * RoomScale, r\z + 61.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			it = CreateItem("S-NAV 300 Navigator", "nav", r\x - 312.0 * RoomScale, r\y + 264.0 * RoomScale, r\z + 176.0 * RoomScale)
@@ -2777,7 +2777,7 @@ Function FillRoom(r.Rooms)
 			it = CreateItem("Empty Cup", "emptycup", r\x-672*RoomScale, 240*RoomScale, r\z+288.0*RoomScale)
 			EntityParent(it\collider, r\obj)
 			
-			it = CreateItem("Level 1 Key Card", "key1", r\x - 672.0 * RoomScale, r\y + 240.0 * RoomScale, r\z + 224.0 * RoomScale)
+			it = CreateItem("Stufe 1 Schlüsselkarte", "key1", r\x - 672.0 * RoomScale, r\y + 240.0 * RoomScale, r\z + 224.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			;[End Block]
 		Case "room2sroom"
@@ -2791,7 +2791,7 @@ Function FillRoom(r.Rooms)
 			it = CreateItem("Some SCP-420-J", "420", r\x + 1808.0 * RoomScale, r\y + 400.0 * RoomScale, r\z + 435.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
-			it = CreateItem("Level 5 Key Card", "key5", r\x + 2232.0 * RoomScale, r\y + 392.0 * RoomScale, r\z + 387.0 * RoomScale)
+			it = CreateItem("Stufe 5 Schlüsselkarte", "key5", r\x + 2232.0 * RoomScale, r\y + 392.0 * RoomScale, r\z + 387.0 * RoomScale)
 			RotateEntity it\collider, 0, r\angle, 0, True
 			EntityParent(it\collider, r\obj)
 			
@@ -2811,7 +2811,7 @@ Function FillRoom(r.Rooms)
 			d = CreateDoor(r\zone, r\x + 256.0 * RoomScale, r\y, r\z + 744.0 * RoomScale, 90, r, False, False, 2)
 			d\AutoClose = False : d\open = False
 			
-			it = CreateItem("Level 3 Key Card", "key3", r\x + 1119.0 * RoomScale, r\y + 233.0 * RoomScale, r\z + 494.0 * RoomScale)
+			it = CreateItem("Stufe 3 Schlüsselkarte", "key3", r\x + 1119.0 * RoomScale, r\y + 233.0 * RoomScale, r\z + 494.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			it = CreateItem("First Aid Kit", "firstaid", r\x + 1035.0 * RoomScale, r\y + 145.0 * RoomScale, r\z + 56.0 * RoomScale)
@@ -3522,7 +3522,7 @@ Function FillRoom(r.Rooms)
 			it = CreateItem("Document SCP-049", "paper", r\x - 608.0 * RoomScale, r\y - 3332.0 * RoomScale, r\z + 876.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
-			it = CreateItem("Level 4 Key Card", "key4", r\x - 512.0 * RoomScale, r\y - 3412.0 * RoomScale, r\z + 864.0 * RoomScale)
+			it = CreateItem("Stufe 4 Schlüsselkarte", "key4", r\x - 512.0 * RoomScale, r\y - 3412.0 * RoomScale, r\z + 864.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			it = CreateItem("First Aid Kit", "firstaid", r\x +385.0 * RoomScale, r\y - 3412.0 * RoomScale, r\z + 271.0 * RoomScale)
@@ -3818,7 +3818,7 @@ Function FillRoom(r.Rooms)
 				EntityParent(it\collider, r\obj)
 			EndIf
 			
-			it = CreateItem("Level 1 Key Card", "key1", r\x + 736.0 * RoomScale, r\y + 240.0 * RoomScale, r\z + 752.0 * RoomScale)
+			it = CreateItem("Stufe 1 Schlüsselkarte", "key1", r\x + 736.0 * RoomScale, r\y + 240.0 * RoomScale, r\z + 752.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			Local clipboard.Items = CreateItem("Clipboard","clipboard",r\x + 736.0 * RoomScale, r\y + 224.0 * RoomScale, r\z -480.0 * RoomScale)
@@ -3849,7 +3849,7 @@ Function FillRoom(r.Rooms)
 			it = CreateItem("Document SCP-106", "paper", r\x + 404.0 * RoomScale, r\y + 145.0 * RoomScale, r\z + 559.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
-			it = CreateItem("Level 2 Key Card", "key2", r\x - 156.0 * RoomScale, r\y + 151.0 * RoomScale, r\z + 72.0 * RoomScale)
+			it = CreateItem("Stufe 2 Schlüsselkarte", "key2", r\x - 156.0 * RoomScale, r\y + 151.0 * RoomScale, r\z + 72.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			it = CreateItem("S-NAV 300 Navigator", "nav", r\x + 305.0 * RoomScale, r\y + 153.0 * RoomScale, r\z + 944.0 * RoomScale)
@@ -3865,7 +3865,7 @@ Function FillRoom(r.Rooms)
 			;[End Block]
 		Case "room2offices2"
 			;[Block]
-			it = CreateItem("Level 1 Key Card", "key1", r\x - 368.0 * RoomScale, r\y - 48.0 * RoomScale, r\z + 80.0 * RoomScale)
+			it = CreateItem("Stufe 1 Schlüsselkarte", "key1", r\x - 368.0 * RoomScale, r\y - 48.0 * RoomScale, r\z + 80.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			it = CreateItem("Document SCP-895", "paper", r\x - 800.0 * RoomScale, r\y - 48.0 * RoomScale, r\z + 368.0 * RoomScale)
@@ -4234,7 +4234,7 @@ Function FillRoom(r.Rooms)
 			it = CreateItem("Document SCP-895", "paper", r\x - 688.0 * RoomScale, r\y + 133.0 * RoomScale, r\z - 304.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
-			it = CreateItem("Level 3 Key Card", "key3", r\x + 240.0 * RoomScale, r\y -1456.0 * RoomScale, r\z + 2064.0 * RoomScale)
+			it = CreateItem("Stufe 3 Schlüsselkarte", "key3", r\x + 240.0 * RoomScale, r\y -1456.0 * RoomScale, r\z + 2064.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			it = CreateItem("Night Vision Goggles", "nvgoggles", r\x + 280.0 * RoomScale, r\y -1456.0 * RoomScale, r\z + 2164.0 * RoomScale)
@@ -4541,7 +4541,7 @@ Function FillRoom(r.Rooms)
 			;[End Block]
 		Case "room106"
 			;[Block]
-			it = CreateItem("Level 5 Key Card", "key5", r\x - 752.0 * RoomScale, r\y - 592 * RoomScale, r\z + 3026.0 * RoomScale)
+			it = CreateItem("Stufe 5 Schlüsselkarte", "key5", r\x - 752.0 * RoomScale, r\y - 592 * RoomScale, r\z + 3026.0 * RoomScale)
 			EntityParent(it\collider, r\obj)
 			
 			it = CreateItem("Dr. Allok's Note", "paper", r\x - 416.0 * RoomScale, r\y - 576 * RoomScale, r\z + 2492.0 * RoomScale)
@@ -4683,7 +4683,7 @@ Function FillRoom(r.Rooms)
 								tempstr2="paper"
 							Case (chance>=40) And (chance<45) ;5% chance for a key card
 								temp3%=Rand(1,2)
-								tempstr="Level "+Str(temp3)+" Key Card"
+								tempstr="Stufe "+Str(temp3)+" Schlüsselkarte"
 								tempstr2="key"+Str(temp3)
 							Case (chance>=45) And (chance<50) ;5% chance for a medkit
 								tempstr="First Aid Kit"
@@ -4704,7 +4704,7 @@ Function FillRoom(r.Rooms)
 								temp3%=Rand(1,3)
 								Select temp3
 									Case 1 ;playing card
-										tempstr="Playing Card"
+										tempstr="Spielkarte"
 									Case 2 ;Mastercard
 										tempstr="Mastercard"
 									Case 3 ;origami
