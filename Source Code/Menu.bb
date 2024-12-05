@@ -1124,7 +1124,7 @@ End Function
 Function UpdateLauncher()
 	MenuScale = 1
 	
-	Graphics3DExt(LauncherWidth, LauncherHeight, 0, 2)
+	Graphics3DExt(LauncherWidth + 100, LauncherHeight, 0, 2)
 
 	;InitExt
 	
@@ -2153,7 +2153,7 @@ Function DrawOptionsTooltip(x%,y%,width%,height%,option$,value#=0,ingame%=False)
 		extraspace = 210*MenuScale
 	EndIf
 	If txt2$ = ""
-		DrawFrame(x,y,width,((AAStringHeight(txt)*lines)+(10+lines)*MenuScale)+extraspace)
+		DrawFrame(x,y,width+100,((AAStringHeight(txt)*lines)+(10+lines)*MenuScale)+extraspace)
 	Else
 		lines2% = GetLineAmount(txt2,fw,fh)
 		DrawFrame(x,y,width,(((AAStringHeight(txt)*lines)+(10+lines)*MenuScale)+(AAStringHeight(txt2)*lines2)+(10+lines2)*MenuScale)+extraspace)
