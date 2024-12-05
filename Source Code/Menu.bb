@@ -425,7 +425,7 @@ Function UpdateMainMenu()
 				
 				Color(255, 255, 255)
 				AASetFont Font2
-				AAText(x + width / 2, y + height / 2, "LADE", True, True)
+				AAText(x + width / 2, y + height / 2, "LADEN", True, True)
 				
 				x = 160 * MenuScale
 				y = y + height + 20 * MenuScale
@@ -1091,7 +1091,7 @@ Function UpdateMainMenu()
 							AAText(x + 20 * MenuScale, y + 10 * MenuScale, SavedMaps(i - 1))
 							AAText(x + 20 * MenuScale, y + (10+27) * MenuScale, SavedMapsAuthor(i - 1))
 							
-							If DrawButton(x + 400 * MenuScale, y + 20 * MenuScale, 100 * MenuScale, 30 * MenuScale, "Lade", False) Then
+							If DrawButton(x + 400 * MenuScale, y + 20 * MenuScale, 100 * MenuScale, 30 * MenuScale, "Laden", False) Then
 								SelectedMap=SavedMaps(i - 1)
 								MainMenuTab = 1
 							EndIf
