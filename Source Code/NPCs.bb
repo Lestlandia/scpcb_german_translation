@@ -3420,7 +3420,7 @@ Function UpdateNPCs()
 										For i = 0 To MaxItemAmount-1
 											If Inventory(i)<>Null
 												Local docname$ = Inventory(i)\itemtemplate\name
-												If docname = "Log #1" Or docname = "Log #2" Or docname = "Log #3"
+												If docname = "Protokoll #1" Or docname = "Protokoll #2" Or docname = "Protokoll #3"
 													;860,850,830,800
 													docamount% = docamount% + 1
 													docchance = docchance + 10*docamount%

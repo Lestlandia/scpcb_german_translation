@@ -1000,7 +1000,7 @@ Function UpdateConsole()
 					;[Block]
 					For i = 1 To 20
 						If Rand(2)=1 Then
-							it.Items = CreateItem("Some SCP-420-J","420", EntityX(Collider,True)+Cos((360.0/20.0)*i)*Rnd(0.3,0.5), EntityY(Camera,True), EntityZ(Collider,True)+Sin((360.0/20.0)*i)*Rnd(0.3,0.5))
+							it.Items = CreateItem("Etwas SCP-420-J","420", EntityX(Collider,True)+Cos((360.0/20.0)*i)*Rnd(0.3,0.5), EntityY(Camera,True), EntityZ(Collider,True)+Sin((360.0/20.0)*i)*Rnd(0.3,0.5))
 						Else
 							it.Items = CreateItem("Joint","420s", EntityX(Collider,True)+Cos((360.0/20.0)*i)*Rnd(0.3,0.5), EntityY(Camera,True), EntityZ(Collider,True)+Sin((360.0/20.0)*i)*Rnd(0.3,0.5))
 						EndIf
@@ -3161,13 +3161,13 @@ Repeat
 			If SelectedDifficulty\saveType = SAVEANYWHERE Then
 				RN$ = PlayerRoom\RoomTemplate\Name$
 				If RN$ = "173" Or (RN$ = "exit1" And EntityY(Collider)>1040.0*RoomScale) Or RN$ = "gatea"
-					Msg = "You cannot save in this location."
+					Msg = "Du kannst hier nicht speichern."
 					MsgTimer = 70 * 4
-					;SetSaveMSG("You cannot save in this location.")
+					;SetSaveMSG("Du kannst hier nicht speichern.")
 				ElseIf (Not CanSave) Or QuickLoadPercent > -1
-					Msg = "You cannot save at this moment."
+					Msg = "Du kannst momentan nicht speichern."
 					MsgTimer = 70 * 4
-					;SetSaveMSG("You cannot save at this moment.")
+					;SetSaveMSG("Du kannst momentan nicht speichern.")
 					If QuickLoadPercent > -1
 						Msg = Msg + " (game is loading)"
 						;Save_MSG = Save_MSG + " (game is loading)"
@@ -3183,13 +3183,13 @@ Repeat
 				Else
 					RN$ = PlayerRoom\RoomTemplate\Name$
 					If RN$ = "173" Or (RN$ = "exit1" And EntityY(Collider)>1040.0*RoomScale) Or RN$ = "gatea"
-						Msg = "You cannot save in this location."
+						Msg = "Du kannst hier nicht speichern."
 						MsgTimer = 70 * 4
-						;SetSaveMSG("You cannot save in this location.")
+						;SetSaveMSG("Du kannst hier nicht speichern.")
 					ElseIf (Not CanSave) Or QuickLoadPercent > -1
-						Msg = "You cannot save at this moment."
+						Msg = "Du kannst momentan nicht speichern."
 						MsgTimer = 70 * 4
-						;SetSaveMSG("You cannot save at this moment.")
+						;SetSaveMSG("Du kannst momentan nicht speichern.")
 						If QuickLoadPercent > -1
 							Msg = Msg + " (game is loading)"
 							;Save_MSG = Save_MSG + " (game is loading)"
@@ -3209,7 +3209,7 @@ Repeat
 				;SetSaveMSG("Quick saving is disabled.")
 			EndIf
 		Else If SelectedDifficulty\saveType = SAVEONSCREENS And (SelectedScreen<>Null Or SelectedMonitor<>Null)
-			If (Msg<>"Game progress saved." And Msg<>"You cannot save in this location."And Msg<>"You cannot save at this moment.") Or MsgTimer<=0 Then
+			If (Msg<>"Spielfortschritt gespeichert." And Msg<>"Du kannst hier nicht speichern."And Msg<>"Du kannst momentan nicht speichern.") Or MsgTimer<=0 Then
 				Msg = "Press "+KeyName(KEY_SAVE)+" to save."
 				MsgTimer = 70*4
 				;SetSaveMSG("Press "+KeyName(KEY_SAVE)+" to save.")
@@ -3804,7 +3804,7 @@ Function DrawEnding()
 					AAText x, y, "SCPs encountered: " +scpsEncountered
 					AAText x, y+20*MenuScale, "Achievements unlocked: " + achievementsUnlocked+"/"+(MAXACHIEVEMENTS)
 					AAText x, y+40*MenuScale, "Rooms found: " + roomsfound+"/"+roomamount
-					AAText x, y+60*MenuScale, "Documents discovered: " +docsfound+"/"+docamount
+					AAText x, y+60*MenuScale, "Dokuments discovered: " +docsfound+"/"+docamount
 					AAText x, y+80*MenuScale, "Items refined in SCP-914: " +RefinedItems			
 					
 					x = GraphicWidth / 2 - width / 2
@@ -5933,14 +5933,14 @@ Function DrawGUI()
 					;[Block]
 					If SelectedItem\itemtemplate\img = 0 Then
 						Select SelectedItem\itemtemplate\name
-							Case "Burnt Note" 
+							Case "Verbrannte Notiz" 
 								SelectedItem\itemtemplate\img = LoadImage_Strict("GFX\items\bn.it")
 								SetBuffer ImageBuffer(SelectedItem\itemtemplate\img)
 								Color 0,0,0
 								AAText 277, 469, AccessCode, True, True
 								Color 255,255,255
 								SetBuffer BackBuffer()
-							Case "Document SCP-372"
+							Case "Dokument SCP-372"
 								SelectedItem\itemtemplate\img = LoadImage_Strict(SelectedItem\itemtemplate\imgpath)	
 								SelectedItem\itemtemplate\img = ResizeImage2(SelectedItem\itemtemplate\img, ImageWidth(SelectedItem\itemtemplate\img) * MenuScale, ImageHeight(SelectedItem\itemtemplate\img) * MenuScale)
 								
@@ -8444,7 +8444,7 @@ Function InitNewGame()
 		If (r\RoomTemplate\Name = "start" And IntroEnabled = False) Then 
 			PositionEntity (Collider, EntityX(r\obj)+3584*RoomScale, 704*RoomScale, EntityZ(r\obj)+1024*RoomScale)
 			PlayerRoom = r
-			it = CreateItem("Class D Orientation Leaflet", "paper", 1, 1, 1)
+			it = CreateItem("Orientierungsbroschüre für Klasse D", "paper", 1, 1, 1)
 			it\Picked = True
 			it\Dropped = -1
 			it\itemtemplate\found=True
@@ -8453,7 +8453,7 @@ Function InitNewGame()
 			EntityType (it\collider, HIT_ITEM)
 			EntityParent(it\collider, 0)
 			ItemAmount = ItemAmount + 1
-			it = CreateItem("Document SCP-173", "paper", 1, 1, 1)
+			it = CreateItem("Dokument SCP-173", "paper", 1, 1, 1)
 			it\Picked = True
 			it\Dropped = -1
 			it\itemtemplate\found=True
@@ -9450,7 +9450,7 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 					n\State3 = 1
 					RemoveItem(item)
 			End Select
-		Case "Ballistic Vest"
+		Case "Schusssichere Weste"
 			Select setting
 				Case "rough", "coarse"
 					d.Decals = CreateDecal(0, x, 8 * RoomScale + 0.005, z, 90, Rand(360), 0)
@@ -9460,10 +9460,10 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 					PositionEntity(item\collider, x, y, z)
 					ResetEntity(item\collider)
 				Case "fine"
-					it2 = CreateItem("Heavy Ballistic Vest", "finevest", x, y, z)
+					it2 = CreateItem("Schwere Schusssichere Weste", "finevest", x, y, z)
 					RemoveItem(item)
 				Case "very fine"
-					it2 = CreateItem("Bulky Ballistic Vest", "veryfinevest", x, y, z)
+					it2 = CreateItem("Klobige Schusssichere Weste", "veryfinevest", x, y, z)
 					RemoveItem(item)
 			End Select
 		Case "Clipboard"
@@ -9544,11 +9544,11 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 							Case "vest"
 								RemoveItem (it2)
 								RemoveItem(item)
-								it2 = CreateItem("Heavy Ballistic Vest", "finevest", x, y, z)
+								it2 = CreateItem("Schwere Schusssichere Weste", "finevest", x, y, z)
 							Case "hazmatsuit","hazmatsuit2"
 								RemoveItem (it2)
 								RemoveItem(item)
-								it2 = CreateItem("Heavy Hazmat Suit", "hazmatsuit3", x, y, z)
+								it2 = CreateItem("Schwerer Schutzanzug", "hazmatsuit3", x, y, z)
 						End Select
 					Else 
 						If item\itemtemplate\name="SCP-148 Ingot" Then
@@ -9829,7 +9829,7 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 			End Select
 			
 			RemoveItem(item)
-		Case "Some SCP-420-J", "Cigarette"
+		Case "Etwas SCP-420-J", "Cigarette"
 			Select setting
 				Case "rough", "coarse"			
 					d.Decals = CreateDecal(0, x, 8*RoomScale+0.010, z, 90, Rand(360), 0)
@@ -9871,17 +9871,17 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 			End Select
 			
 			RemoveItem(item)		
-		Case "Hazmat Suit"
+		Case "Schutzanzug"
 			Select setting
 				Case "rough", "coarse"
 					d.Decals = CreateDecal(0, x, 8 * RoomScale + 0.010, z, 90, Rand(360), 0)
 					d\Size = 0.2 : EntityAlpha(d\obj, 0.8) : ScaleSprite(d\obj, d\Size, d\Size)
 				Case "1:1"
-					it2 = CreateItem("Hazmat Suit", "hazmatsuit", x,y,z)
+					it2 = CreateItem("Schutzanzug", "hazmatsuit", x,y,z)
 				Case "fine"
-					it2 = CreateItem("Hazmat Suit", "hazmatsuit2", x,y,z)
+					it2 = CreateItem("Schutzanzug", "hazmatsuit2", x,y,z)
 				Case "very fine"
-					it2 = CreateItem("Hazmat Suit", "hazmatsuit2", x,y,z)
+					it2 = CreateItem("Schutzanzug", "hazmatsuit2", x,y,z)
 			End Select
 			
 			RemoveItem(item)
@@ -9995,17 +9995,17 @@ Function Use914(item.Items, setting$, x#, y#, z#)
 						Case "1:1"
 							Select Rand(6)
 								Case 1
-									it2 = CreateItem("Document SCP-106", "paper", x, y, z)
+									it2 = CreateItem("Dokument SCP-106", "paper", x, y, z)
 								Case 2
-									it2 = CreateItem("Document SCP-079", "paper", x, y, z)
+									it2 = CreateItem("Dokument SCP-079", "paper", x, y, z)
 								Case 3
-									it2 = CreateItem("Document SCP-173", "paper", x, y, z)
+									it2 = CreateItem("Dokument SCP-173", "paper", x, y, z)
 								Case 4
-									it2 = CreateItem("Document SCP-895", "paper", x, y, z)
+									it2 = CreateItem("Dokument SCP-895", "paper", x, y, z)
 								Case 5
-									it2 = CreateItem("Document SCP-682", "paper", x, y, z)
+									it2 = CreateItem("Dokument SCP-682", "paper", x, y, z)
 								Case 6
-									it2 = CreateItem("Document SCP-860", "paper", x, y, z)
+									it2 = CreateItem("Dokument SCP-860", "paper", x, y, z)
 							End Select
 						Case "fine", "very fine"
 							it2 = CreateItem("Origami", "misc", x, y, z)
@@ -11580,19 +11580,19 @@ Function IsItemGoodFor1162(itt.ItemTemplates)
 			Return True
 		Case "clipboard","eyedrops","nvgoggles"
 			Return True
-		Case "drawing"
+		Case "Zeichnung"
 			If itt\img<>0 Then FreeImage itt\img	
-			itt\img = LoadImage_Strict("GFX\items\1048\1048_"+Rand(1,20)+".jpg") ;Gives a random drawing.
+			itt\img = LoadImage_Strict("GFX\items\1048\1048_"+Rand(1,20)+".jpg") ;Gives a random Zeichnung.
 			Return True
 		Default
 			If itt\tempname <> "paper" Then
 				Return False
-			Else If Instr(itt\name, "Leaflet")
+			Else If Instr(itt\name, "Broschüre")
 				Return False
 			Else
 				;if the item is a paper, only allow spawning it if the name contains the word "note" or "log"
 				;(because those are items created recently, which D-9341 has most likely never seen)
-				Return ((Not Instr(itt\name, "Note")) And (Not Instr(itt\name, "Log")))
+				Return ((Not Instr(itt\name, "Note")) And (Not Instr(itt\name, "Protokoll")))
 			EndIf
 	End Select
 End Function

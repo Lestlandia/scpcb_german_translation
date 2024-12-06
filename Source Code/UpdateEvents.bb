@@ -854,7 +854,7 @@ Function UpdateEvents()
 											DrawHandIcon = True
 											
 											If MouseHit1 Then
-												SelectedItem = CreateItem("Document SCP-173", "paper", 0.0, 0.0, 0.0)
+												SelectedItem = CreateItem("Dokument SCP-173", "paper", 0.0, 0.0, 0.0)
 												EntityType SelectedItem\collider,HIT_ITEM
 												
 												PickItem(SelectedItem)
@@ -4065,7 +4065,7 @@ Function UpdateEvents()
 						
 						Local itt.ItemTemplates
 						For itt.ItemTemplates = Each ItemTemplates
-							If itt\name = "Drawing" Then
+							If itt\name = "Zeichnung" Then
 								If itt\img<>0 Then FreeImage itt\img	
 								itt\img = LoadImage_Strict(imgPath)
 								MaskImage(itt\img, 255,0,255)
@@ -4122,7 +4122,7 @@ Function UpdateEvents()
 										Msg = "You cannot carry any more items."
 										MsgTimer = 70 * 5
 									Else
-										SelectedItem = CreateItem("Drawing", "paper", 0.0, 0.0, 0.0)
+										SelectedItem = CreateItem("Zeichnung", "paper", 0.0, 0.0, 0.0)
 										EntityType SelectedItem\collider,HIT_ITEM
 										
 										PickItem(SelectedItem)
@@ -4610,7 +4610,7 @@ Function UpdateEvents()
 								Next
 							Case 18
 								TFormPoint -344,176, 272, e\room\obj,0
-								it.Items = CreateItem("Strange Note", "paper", TFormedX(), TFormedY(), TFormedZ())
+								it.Items = CreateItem("Komische Notiz", "paper", TFormedX(), TFormedY(), TFormedZ())
 								EntityType(it\collider, HIT_ITEM)
 							Case 25
 								e\room\NPC[0]=CreateNPC(NPCtypeD, EntityX(e\room\obj)+Cos(e\room\angle-90)*760*RoomScale, 0.35, EntityZ(e\room\obj)+Sin(e\room\angle-90)*760*RoomScale)
@@ -4624,7 +4624,7 @@ Function UpdateEvents()
 							Case 30
 								i = Rand(0,MaxItemAmount-1)
 								If Inventory(i)<>Null Then RemoveItem(Inventory(i))
-								Inventory(i) = CreateItem("Strange Note", "paper", 1,1,1)
+								Inventory(i) = CreateItem("Komische Notiz", "paper", 1,1,1)
 								HideEntity Inventory(i)\collider
 								Inventory(i)\Picked = True
 							Case 35
@@ -5121,7 +5121,7 @@ Function UpdateEvents()
 									If e\EventState3>70 And e\EventState3-FPSfactor=<70 Then
 										PlaySound_Strict LoadTempSound("SFX\SCP\012\Speech1.ogg")
 									ElseIf e\EventState3>13*70 And e\EventState3-FPSfactor=<13*70
-										Msg="You start pushing your nails into your wrist, drawing blood."
+										Msg="You start pushing your nails into your wrist, Zeichnung blood."
 										MsgTimer = 7*70
 										Injuries=Injuries+0.5
 										PlaySound_Strict LoadTempSound("SFX\SCP\012\Speech2.ogg")
@@ -6821,7 +6821,7 @@ Function UpdateEvents()
 						CanSave = True
 						For i = 0 To MaxItemAmount-1
 							If Inventory(i) <> Null Then
-								If Inventory(i)\itemtemplate\name = "Leaflet"
+								If Inventory(i)\itemtemplate\name = "Broschüre"
 									RemoveItem(Inventory(i))
 									Exit
 								EndIf
