@@ -3248,7 +3248,7 @@ Repeat
 					If e\EventName = "173" Then
 						If e\EventState3 => 40 And e\EventState3 < 50 Then
 							If InvOpen Then
-								Msg = "Double click on the document to view it."
+								Msg = "Um das Dokument zu lesen, klicke es doppelt an."
 								MsgTimer=70*7
 								e\EventState3 = 50
 							EndIf
@@ -5217,7 +5217,7 @@ Function DrawGUI()
 					ElseIf PrevOtherOpen\SecondInv[MouseSlot] <> SelectedItem
 						Select SelectedItem\itemtemplate\tempname
 							Default
-								Msg = "You cannot combine these two items."
+								Msg = "Diese Items sind nicht kombinierbar."
 								MsgTimer = 70 * 5
 						End Select					
 					EndIf
@@ -5387,11 +5387,11 @@ Function DrawGUI()
 				If MouseSlot = 66 Then
 					Select SelectedItem\itemtemplate\tempname
 						Case "vest","finevest","hazmatsuit","hazmatsuit2","hazmatsuit3"
-							Msg = "Double click on this item to take it off."
+							Msg = "Klicke doppelt auf das Item um es abzunehmen."
 							MsgTimer = 70*5
 						Case "scp1499","super1499"
 							If Wearing1499>0 Then
-								Msg = "Double click on this item to take it off."
+								Msg = "Klicke doppelt auf das Item um es abzunehmen."
 								MsgTimer = 70*5
 							Else
 								DropItem(SelectedItem)
@@ -5442,20 +5442,20 @@ Function DrawGUI()
 											EndIf
 										Next
 										If SelectedItem <> Null Then
-											Msg = "The paperclip is not strong enough to hold any more items."
+											Msg = "Die Papierklammer ist nicht stark genug um mehr Items zu tragen."
 										Else
 											If added\itemtemplate\tempname = "paper" Or added\itemtemplate\tempname = "oldpaper" Then
-												Msg = "This document was added to the clipboard."
+												Msg = "Dieses Dokument wurde dem Klemmbrett hinzugefügt."
 											ElseIf added\itemtemplate\tempname = "badge"
-												Msg = added\itemtemplate\name + " was added to the clipboard."
+												Msg = added\itemtemplate\name + " wurde dem Klemmbrett hinzugefügt."
 											Else
-												Msg = "The " + added\itemtemplate\name + " was added to the clipboard."
+												Msg = "Item " + added\itemtemplate\name + " wurde dem Klemmbrett hinzugefügt."
 											EndIf
 											
 										EndIf
 										MsgTimer = 70 * 5
 									Else
-										Msg = "You cannot combine these two items."
+										Msg = "Diese Items sind nicht kombinierbar."
 										MsgTimer = 70 * 5
 									EndIf
 								ElseIf Inventory(MouseSlot)\itemtemplate\tempname = "wallet" Then
@@ -5486,18 +5486,18 @@ Function DrawGUI()
 											EndIf
 										Next
 										If SelectedItem <> Null Then
-											Msg = "The wallet is full."
+											Msg = "Die Brieftasche ist voll."
 										Else
-											Msg = "You put "+added\itemtemplate\name+" into the wallet."
+											Msg = "Du fügst "+added\itemtemplate\name+" der Brieftasche hinzu."
 										EndIf
 										
 										MsgTimer = 70 * 5
 									Else
-										Msg = "You cannot combine these two items."
+										Msg = "Diese Items sind nicht kombinierbar."
 										MsgTimer = 70 * 5
 									EndIf
 								Else
-									Msg = "You cannot combine these two items."
+									Msg = "Diese Items sind nicht kombinierbar."
 									MsgTimer = 70 * 5
 								EndIf
 								SelectedItem = Null
@@ -5511,25 +5511,25 @@ Function DrawGUI()
 										RemoveItem (SelectedItem)
 										SelectedItem = Null
 										Inventory(MouseSlot)\state = 100.0
-										Msg = "You replaced the navigator's battery."
+										Msg = "Du tauscht die Batterie des Navigators."
 										MsgTimer = 70 * 5
 									Case "S-NAV Navigator Ultimate"
-										Msg = "There seems to be no place for batteries in this navigator."
+										Msg = "Dieser Navigator hat anscheinend kein Batteriefach."
 										MsgTimer = 70 * 5
 									Case "Radio Transceiver"
 										Select Inventory(MouseSlot)\itemtemplate\tempname 
 											Case "fineradio", "veryfineradio"
-												Msg = "There seems to be no place for batteries in this radio."
+												Msg = "Dieses Radio hat anscheinend kein Batteriefach."
 												MsgTimer = 70 * 5
 											Case "18vradio"
-												Msg = "The battery does not fit inside this radio."
+												Msg = "Diese Batterie passt nicht in dieses Radio."
 												MsgTimer = 70 * 5
 											Case "radio"
 												If SelectedItem\itemtemplate\sound <> 66 Then PlaySound_Strict(PickSFX(SelectedItem\itemtemplate\sound))	
 												RemoveItem (SelectedItem)
 												SelectedItem = Null
 												Inventory(MouseSlot)\state = 100.0
-												Msg = "You replaced the radio's battery."
+												Msg = "Du tauscht die Batterie des Radios."
 												MsgTimer = 70 * 5
 										End Select
 									Case "Night Vision Goggles"
@@ -5539,14 +5539,14 @@ Function DrawGUI()
 											RemoveItem (SelectedItem)
 											SelectedItem = Null
 											Inventory(MouseSlot)\state = 1000.0
-											Msg = "You replaced the goggles' battery."
+											Msg = "Du tauscht die Batterie des Geräts."
 											MsgTimer = 70 * 5
 										Else
-											Msg = "There seems to be no place for batteries in these night vision goggles."
+											Msg = "Dieses Nachtsichtgerät hat anscheinend kein Batteriefach."
 											MsgTimer = 70 * 5
 										EndIf
 									Default
-										Msg = "You cannot combine these two items."
+										Msg = "Diese Items sind nicht kombinierbar."
 										MsgTimer = 70 * 5	
 								End Select
 								;[End Block]
@@ -5554,32 +5554,32 @@ Function DrawGUI()
 								;[Block]
 								Select Inventory(MouseSlot)\itemtemplate\name
 									Case "S-NAV Navigator", "S-NAV 300 Navigator", "S-NAV 310 Navigator"
-										Msg = "The battery does not fit inside this navigator."
+										Msg = "Diese Batterie passt nicht in den Navigator."
 										MsgTimer = 70 * 5
 									Case "S-NAV Navigator Ultimate"
-										Msg = "There seems to be no place for batteries in this navigator."
+										Msg = "Dieser Navigator hat anscheinend kein Batteriefach."
 										MsgTimer = 70 * 5
 									Case "Radio Transceiver"
 										Select Inventory(MouseSlot)\itemtemplate\tempname 
 											Case "fineradio", "veryfineradio"
-												Msg = "There seems to be no place for batteries in this radio."
+												Msg = "Dieses Radio hat anscheinend kein Batteriefach."
 												MsgTimer = 70 * 5		
 											Case "18vradio"
 												If SelectedItem\itemtemplate\sound <> 66 Then PlaySound_Strict(PickSFX(SelectedItem\itemtemplate\sound))	
 												RemoveItem (SelectedItem)
 												SelectedItem = Null
 												Inventory(MouseSlot)\state = 100.0
-												Msg = "You replaced the radio's battery."
+												Msg = "Du tauscht die Batterie des Radios."
 												MsgTimer = 70 * 5
 										End Select 
 									Default
-										Msg = "You cannot combine these two items."
+										Msg = "Diese Items sind nicht kombinierbar."
 										MsgTimer = 70 * 5	
 								End Select
 								;[End Block]
 							Default
 								;[Block]
-								Msg = "You cannot combine these two items."
+								Msg = "Diese Items sind nicht kombinierbar."
 								MsgTimer = 70 * 5
 								;[End Block]
 						End Select					
@@ -5604,10 +5604,10 @@ Function DrawGUI()
 					;[Block]
 					If Wearing1499 = 0 And WearingHazmat=0 Then
 						If WearingNightVision = 1 Then
-							Msg = "You removed the goggles."
+							Msg = "Du nimmst das Gerät ab."
 							CameraFogFar = StoredCameraFogFar
 						Else
-							Msg = "You put on the goggles."
+							Msg = "Du setzt das Gerät auf."
 							WearingGasMask = 0
 							WearingNightVision = 0
 							StoredCameraFogFar = CameraFogFar
@@ -5616,9 +5616,9 @@ Function DrawGUI()
 						
 						WearingNightVision = (Not WearingNightVision)
 					ElseIf Wearing1499 > 0 Then
-						Msg = "You need to take off SCP-1499 in order to put on the goggles."
+						Msg = "Du musst SCP-1499 abnehmen, um das Nachtsichtgerät aufzusetzen."
 					Else
-						Msg = "You need to take off the hazmat suit in order to put on the goggles."
+						Msg = "Du musst den Schutzanzug ausziehen, um das Nachtsichtgerät aufzusetzen."
 					EndIf
 					SelectedItem = Null
 					MsgTimer = 70 * 5
@@ -5627,10 +5627,10 @@ Function DrawGUI()
 					;[Block]
 					If Wearing1499 = 0 And WearingHazmat=0 Then
 						If WearingNightVision = 2 Then
-							Msg = "You removed the goggles."
+							Msg = "Du nimmst das Gerät ab."
 							CameraFogFar = StoredCameraFogFar
 						Else
-							Msg = "You put on the goggles."
+							Msg = "Du setzt das Gerät auf."
 							WearingGasMask = 0
 							WearingNightVision = 0
 							StoredCameraFogFar = CameraFogFar
@@ -5639,9 +5639,9 @@ Function DrawGUI()
 						
 						WearingNightVision = (Not WearingNightVision) * 2
 					ElseIf Wearing1499 > 0 Then
-						Msg = "You need to take off SCP-1499 in order to put on the goggles."
+						Msg = "Du musst SCP-1499 abnehmen, um das Nachtsichtgerät aufzusetzen."
 					Else
-						Msg = "You need to take off the hazmat suit in order to put on the goggles."
+						Msg = "Du musst den Schutzanzug ausziehen, um das Nachtsichtgerät aufzusetzen."
 					EndIf
 					SelectedItem = Null
 					MsgTimer = 70 * 5
@@ -5650,10 +5650,10 @@ Function DrawGUI()
 					;[Block]
 					If Wearing1499 = 0 And WearingHazmat = 0 Then
 						If WearingNightVision = 3 Then
-							Msg = "You removed the goggles."
+							Msg = "Du nimmst das Gerät ab."
 							CameraFogFar = StoredCameraFogFar
 						Else
-							Msg = "You put on the goggles."
+							Msg = "Du setzt das Gerät auf."
 							WearingGasMask = 0
 							WearingNightVision = 0
 							StoredCameraFogFar = CameraFogFar
@@ -5662,9 +5662,9 @@ Function DrawGUI()
 						
 						WearingNightVision = (Not WearingNightVision) * 3
 					ElseIf Wearing1499 > 0 Then
-						Msg = "You need to take off SCP-1499 in order to put on the goggles."
+						Msg = "Du musst SCP-1499 abnehmen, um das Nachtsichtgerät aufzusetzen."
 					Else
-						Msg = "You need to take off the hazmat suit in order to put on the goggles."
+						Msg = "Du musst den Schutzanzug ausziehen, um das Nachtsichtgerät aufzusetzen."
 					EndIf
 					SelectedItem = Null
 					MsgTimer = 70 * 5
@@ -5672,11 +5672,11 @@ Function DrawGUI()
 				Case "ring"
 					;[Block]
 					If Wearing714=2 Then
-						Msg = "You removed the ring."
+						Msg = "Du nimmst den Ring ab."
 						Wearing714 = False
 					Else
 						;Achievements(Achv714)=True
-						Msg = "You put on the ring."
+						Msg = "Du legst den Ring an."
 						Wearing714 = 2
 					EndIf
 					MsgTimer = 70 * 5
@@ -5732,9 +5732,9 @@ Function DrawGUI()
 						GiveAchievement(Achv500)
 						
 						If Infect > 0 Then
-							Msg = "You swallowed the pill. Your nausea is fading."
+							Msg = "Du schluckst die Pille. Deine Übelkeit schwindet."
 						Else
-							Msg = "You swallowed the pill."
+							Msg = "Du schluckst die Pille."
 						EndIf
 						MsgTimer = 70*7
 						
@@ -5759,29 +5759,29 @@ Function DrawGUI()
 						Select Rand(5)
 							Case 1
 								Injuries = 3.5
-								Msg = "You started bleeding heavily."
+								Msg = "Du fängst an stark zu bluten."
 								MsgTimer = 70*7
 							Case 2
 								Injuries = 0
 								Bloodloss = 0
-								Msg = "Your wounds are healing up rapidly."
+								Msg = "Deine Wunden fangen schnell an zu heilen."
 								MsgTimer = 70*7
 							Case 3
 								Injuries = Max(0, Injuries - Rnd(0.5,3.5))
 								Bloodloss = Max(0, Bloodloss - Rnd(10,100))
-								Msg = "You feel much better."
+								Msg = "Du fühlst dich viel besser."
 								MsgTimer = 70*7
 							Case 4
 								BlurTimer = 10000
 								Bloodloss = 0
-								Msg = "You feel nauseated."
+								Msg = "Dir wird übel."
 								MsgTimer = 70*7
 							Case 5
 								BlinkTimer = -10
 								Local roomname$ = PlayerRoom\RoomTemplate\Name
 								If roomname = "dimension1499" Or roomname = "gatea" Or (roomname="exit1" And EntityY(Collider)>1040.0*RoomScale)
 									Injuries = 2.5
-									Msg = "You started bleeding heavily."
+									Msg = "Du fängst an stark zu bluten."
 									MsgTimer = 70*7
 								Else
 									For r.Rooms = Each Rooms
@@ -5796,7 +5796,7 @@ Function DrawGUI()
 											Exit
 										EndIf
 									Next
-									Msg = "For some inexplicable reason, you find yourself inside the pocket dimension."
+									Msg = "Aus unerklärlichen Gründen findest du dich in der Taschendimension wieder."
 									MsgTimer = 70*8
 								EndIf
 						End Select
@@ -5807,7 +5807,7 @@ Function DrawGUI()
 				Case "firstaid", "finefirstaid", "firstaid2"
 					;[Block]
 					If Bloodloss = 0 And Injuries = 0 Then
-						Msg = "You do not need to use a first aid kit right now."
+						Msg = "Du brauchst zurzeit keinen Erste-Hilfe-Koffer."
 						MsgTimer = 70*5
 						SelectedItem = Null
 					Else
@@ -5833,33 +5833,33 @@ Function DrawGUI()
 									Bloodloss = 0
 									Injuries = Max(0, Injuries - 2.0)
 									If Injuries = 0 Then
-										Msg = "You bandaged the wounds and took a painkiller. You feel fine."
+										Msg = "Du bandagierst die Wunden und nimmst eine Schmerztablette. You feel fine."
 									ElseIf Injuries > 1.0
-										Msg = "You bandaged the wounds and took a painkiller, but you were not able to stop the bleeding."
+										Msg = "Du bandagierst die Wunden und nimmst eine Schmerztablette, kannst aber die Blutung nicht stillen."
 									Else
-										Msg = "You bandaged the wounds and took a painkiller, but you still feel sore."
+										Msg = "Du bandagierst die Wunden und nimmst eine Schmerztablette, aber du fühlst dich immer noch wund."
 									EndIf
 									MsgTimer = 70*5
 									RemoveItem(SelectedItem)
 								Else
 									Bloodloss = Max(0, Bloodloss - Rand(10,20))
 									If Injuries => 2.5 Then
-										Msg = "The wounds were way too severe to staunch the bleeding completely."
+										Msg = "Die Wunden sind zu stark um die Blutung komplett zu stillen."
 										Injuries = Max(2.5, Injuries-Rnd(0.3,0.7))
 									ElseIf Injuries > 1.0
 										Injuries = Max(0.5, Injuries-Rnd(0.5,1.0))
 										If Injuries > 1.0 Then
-											Msg = "You bandaged the wounds but were unable to staunch the bleeding completely."
+											Msg = "Du bandagierst die Wunden, kannst aber die Blutung nicht komplett stillen."
 										Else
-											Msg = "You managed to stop the bleeding."
+											Msg = "Du hast es geschafft die Blutung zu stillen."
 										EndIf
 									Else
 										If Injuries > 0.5 Then
 											Injuries = 0.5
-											Msg = "You took a painkiller, easing the pain slightly."
+											Msg = "Du nimmst eine Schmerztablette. Der Schmerz lässt etwas nach."
 										Else
 											Injuries = 0.5
-											Msg = "You took a painkiller, but it still hurts to walk."
+											Msg = "Du nimmst eine Schmerztablette, aber gehen tut noch immer weh."
 										EndIf
 									EndIf
 									
@@ -5867,22 +5867,22 @@ Function DrawGUI()
 										Select Rand(6)
 											Case 1
 												SuperMan = True
-												Msg = "You have becomed overwhelmedwithadrenalineholyshitWOOOOOO~!"
+												Msg = "Du wirst von Adrenalin überwältigt, heiligescheißeWOOOOOO~!"
 											Case 2
 												InvertMouse = (Not InvertMouse)
-												Msg = "You suddenly find it very difficult to turn your head."
+												Msg = "Du findest es plötzlich sehr schwierig, deinen Kopf zu drehen."
 											Case 3
 												BlurTimer = 5000
-												Msg = "You feel nauseated."
+												Msg = "Dir wird übel."
 											Case 4
 												BlinkEffect = 0.6
 												BlinkEffectTimer = Rand(20,30)
 											Case 5
 												Bloodloss = 0
 												Injuries = 0
-												Msg = "You bandaged the wounds. The bleeding stopped completely and you feel fine."
+												Msg = "Du bandagierst die Wunden. Die Blutung ist komplett gestillt und du fühlst dich gut."
 											Case 6
-												Msg = "You bandaged the wounds and blood started pouring heavily through the bandages."
+												Msg = "Du bandagierst die Wunden. Blut durchnässt die Bandagen stark."
 												Injuries = 3.5
 										End Select
 									EndIf
@@ -5957,7 +5957,7 @@ Function DrawGUI()
 								SelectedItem\itemtemplate\img=LoadImage_Strict(SelectedItem\itemtemplate\imgpath)	
 								
 								If (SelectedItem\state = 0) Then
-									Msg = Chr(34)+"Hey, I remember this movie!"+Chr(34)
+									Msg = Chr(34)+"Hey, an den Film kann ich mich errinnern!"+Chr(34)
 									MsgTimer = 70*10
 									PlaySound_Strict LoadTempSound("SFX\SCP\1162\NostalgiaCancer"+Rand(1,5)+".ogg")
 									SelectedItem\state = 1
@@ -6484,11 +6484,11 @@ Function DrawGUI()
 				Case "scp714"
 					;[Block]
 					If Wearing714=1 Then
-						Msg = "You removed the ring."
+						Msg = "Du nimmst den Ring ab."
 						Wearing714 = False
 					Else
 						GiveAchievement(Achv714)
-						Msg = "You put on the ring."
+						Msg = "Du legst den Ring an."
 						Wearing714 = True
 					EndIf
 					MsgTimer = 70 * 5
@@ -6995,7 +6995,7 @@ Function DrawGUI()
 				Case "pill"
 					;[Block]
 					If CanUseItem(False, False, True)
-						Msg = "You swallowed the pill."
+						Msg = "Du schluckst die Pille."
 						MsgTimer = 70*7
 						
 						RemoveItem(SelectedItem)
@@ -7005,7 +7005,7 @@ Function DrawGUI()
 				Case "scp500death"
 					;[Block]
 					If CanUseItem(False, False, True)
-						Msg = "You swallowed the pill."
+						Msg = "Du schluckst die Pille."
 						MsgTimer = 70*7
 						
 						If I_427\Timer < 70*360 Then
@@ -10441,7 +10441,7 @@ Function UpdateInfect()
 				Msg = "You feel kinda feverish."
 				MsgTimer = 70*6
 			ElseIf Infect > 40 And temp =< 40.0
-				Msg = "You feel nauseated."
+				Msg = "Dir wird übel."
 				MsgTimer = 70*6
 			ElseIf Infect > 60 And temp =< 60.0
 				Msg = "The nausea's getting worse."
