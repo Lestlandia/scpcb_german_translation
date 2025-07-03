@@ -35,7 +35,7 @@ Global SelectedInputBox%
 Global SavePath$ = "Saves\"
 Global SaveMSG$
 
-;nykyisen tallennuksen nimi ja samalla miss?¤ kansiossa tallennustiedosto sijaitsee saves-kansiossa
+;nykyisen tallennuksen nimi ja samalla miss?Â¤ kansiossa tallennustiedosto sijaitsee saves-kansiossa
 Global CurrSave$
 
 Global SaveGameAmount%
@@ -231,7 +231,7 @@ Function UpdateMainMenu()
 		
 		DrawFrame(x, y, width, height)
 		
-		If DrawButton(x + width + 20 * MenuScale, y, 580 * MenuScale - width - 20 * MenuScale, height, "BACK", False) Then 
+		If DrawButton(x + width + 20 * MenuScale, y, 580 * MenuScale - width - 20 * MenuScale, height, "ZURCK", False) Then 
 			Select MainMenuTab
 				Case 1
 					PutINIValue(OptionFile, "options", "intro enabled", IntroEnabled%)
@@ -311,7 +311,7 @@ Function UpdateMainMenu()
 						AAText(x+150*MenuScale + 100*MenuScale, y+55*MenuScale + 15*MenuScale, SelectedMap, True, True)
 					EndIf
 					
-					If DrawButton(x+370*MenuScale, y+55*MenuScale, 120*MenuScale, 30*MenuScale, "Deselect", False) Then
+					If DrawButton(x+370*MenuScale, y+55*MenuScale, 120*MenuScale, 30*MenuScale, "Abwaehlen", False) Then
 						SelectedMap=""
 					EndIf
 				EndIf	
@@ -340,7 +340,7 @@ Function UpdateMainMenu()
 						SelectedDifficulty\saveType = SAVEONSCREENS
 					EndIf
 					
-					AAText(x + 200 * MenuScale, y + 195 * MenuScale, "Überall Speichern")	
+					AAText(x + 200 * MenuScale, y + 195 * MenuScale, "Ãœberall Speichern")	
 					
 					SelectedDifficulty\aggressiveNPCs =  DrawTick(x + 160 * MenuScale, y + 225 * MenuScale, SelectedDifficulty\aggressiveNPCs)
 					AAText(x + 200 * MenuScale, y + 225 * MenuScale, "Aggressive NPCs")
@@ -378,7 +378,7 @@ Function UpdateMainMenu()
 				
 				AASetFont Font2
 				
-				If DrawButton(x + 420 * MenuScale, y + height + 20 * MenuScale, 160 * MenuScale, 70 * MenuScale, "START", False) Then
+				If DrawButton(x + 420 * MenuScale, y + height + 20 * MenuScale, 160 * MenuScale, 70 * MenuScale, "STARTEN", False) Then
 					If CurrSave = "" Then CurrSave = "unbennant"
 					
 					If RandomSeed = "" Then
@@ -502,7 +502,7 @@ Function UpdateMainMenu()
 									EndIf
 								EndIf
 								
-								If DrawButton(x + 400 * MenuScale, y + 20 * MenuScale, 100 * MenuScale, 30 * MenuScale, "Löschen", False) Then
+								If DrawButton(x + 400 * MenuScale, y + 20 * MenuScale, 100 * MenuScale, 30 * MenuScale, "LÃ¶schen", False) Then
 									SaveMSG = SaveGames(i - 1)
 									DebugLog SaveMSG
 									Exit
@@ -518,7 +518,7 @@ Function UpdateMainMenu()
 								
 								DrawFrame(x + 400 * MenuScale, y + 20 * MenuScale, 100 * MenuScale, 30 * MenuScale)
 								Color(100, 100, 100)
-								AAText(x + 450 * MenuScale, y + 34 * MenuScale, "Löschen", True, True)
+								AAText(x + 450 * MenuScale, y + 34 * MenuScale, "LÃ¶schen", True, True)
 							EndIf
 							
 							y = y + 80 * MenuScale
@@ -531,7 +531,7 @@ Function UpdateMainMenu()
 						x = 740 * MenuScale
 						y = 376 * MenuScale
 						DrawFrame(x, y, 420 * MenuScale, 200 * MenuScale)
-						RowText("Willst du diesen Spielstand wirklich löschen?", x + 20 * MenuScale, y + 15 * MenuScale, 400 * MenuScale, 200 * MenuScale)
+						RowText("Willst du diesen Spielstand wirklich lÃ¶schen?", x + 20 * MenuScale, y + 15 * MenuScale, 400 * MenuScale, 200 * MenuScale)
 						;AAText(x + 20 * MenuScale, y + 15 * MenuScale, "Are you sure you want to delete this save?")
 						If DrawButton(x + 50 * MenuScale, y + 150 * MenuScale, 100 * MenuScale, 30 * MenuScale, "Ja", False) Then
 							DeleteFile(CurrentDir() + SavePath + SaveMSG + "\save.txt")
@@ -703,7 +703,7 @@ Function UpdateMainMenu()
 					
 					MusicVolume = (SlideBar(x + 310*MenuScale, y-4*MenuScale, 150*MenuScale, MusicVolume*100.0)/100.0)
 					Color 255,255,255
-					AAText(x + 20 * MenuScale, y, "Musiklautstärke:")
+					AAText(x + 20 * MenuScale, y, "MusiklautstÃ¤rke:")
 					If MouseOn(x+310*MenuScale,y-4*MenuScale,150*MenuScale+14,20)
 						DrawOptionsTooltip(tx,ty,tw,th,"musicvol",MusicVolume)
 					EndIf
@@ -714,7 +714,7 @@ Function UpdateMainMenu()
 					PrevSFXVolume = (SlideBar(x + 310*MenuScale, y-4*MenuScale, 150*MenuScale, SFXVolume*100.0)/100.0)
 					SFXVolume = PrevSFXVolume
 					Color 255,255,255
-					AAText(x + 20 * MenuScale, y, "Geräuschkulisse:")
+					AAText x + 20 * MenuScale, y, "Automatische Soundfreigabe:"
 					If MouseOn(x+310*MenuScale,y-4*MenuScale,150*MenuScale+14,20)
 						DrawOptionsTooltip(tx,ty,tw,th,"soundvol",PrevSFXVolume)
 					EndIf
@@ -1034,7 +1034,7 @@ Function UpdateMainMenu()
 				
 				Color(255, 255, 255)
 				AASetFont Font2
-				AAText(x + width / 2, y + height / 2, "LOAD MAP", True, True)
+				AAText(x + width / 2, y + height / 2, "KARTE LADEN", True, True)
 				
 				x = 160 * MenuScale
 				y = y + height + 20 * MenuScale
@@ -1069,7 +1069,7 @@ Function UpdateMainMenu()
 				
 				DrawFrame(x+50*MenuScale,y+510*MenuScale,width-100*MenuScale,55*MenuScale)
 				
-				AAText(x+(width/2.0),y+536*MenuScale,"Page "+Int(Max((CurrLoadGamePage+1),1))+"/"+Int(Max((Int(Ceil(Float(SavedMapsAmount)/6.0))),1)),True,True)
+				AAText(x+(width/2.0),y+536*MenuScale,"Seite "+Int(Max((CurrLoadGamePage+1),1))+"/"+Int(Max((Int(Ceil(Float(SavedMapsAmount)/6.0))),1)),True,True)
 				
 				AASetFont Font1
 				
@@ -1080,7 +1080,7 @@ Function UpdateMainMenu()
 				AASetFont Font1
 				
 				If SavedMaps(0)="" Then 
-					AAText (x + 20 * MenuScale, y + 20 * MenuScale, "No saved maps. Use the Map Creator to create new maps.")
+					AAText (x + 20 * MenuScale, y + 20 * MenuScale, "Keine gespeicherten Karten. Verwende den Map Creator, um neue Karten zu erstellen.")
 				Else
 					x = x + 20 * MenuScale
 					y = y + 20 * MenuScale
@@ -1176,7 +1176,7 @@ Function UpdateLauncher()
 		Color 255, 255, 255
 		DrawImage(LauncherIMG, 0, 0)
 		
-		Text(20, 240 - 65, "Auflösung: ")
+		Text(20, 240 - 65, "AuflÃ¶sung: ")
 		
 		Local x% = 40
 		Local y% = 270 - 65
@@ -1251,12 +1251,12 @@ Function UpdateLauncher()
 		
 		If (Not BorderlessWindowed)
 			If Fullscreen
-				Text(40+ 260 + 15, 262 - 55 + 140, "Derzeitige Auflösung: "+(GfxModeWidths(SelectedGFXMode) + "x" + GfxModeHeights(SelectedGFXMode) + "," + (16+(16*(Not Bit16Mode)))))
+				Text(40+ 260 + 15, 262 - 55 + 140, "Derzeitige AuflÃ¶sung: "+(GfxModeWidths(SelectedGFXMode) + "x" + GfxModeHeights(SelectedGFXMode) + "," + (16+(16*(Not Bit16Mode)))))
 			Else
-				Text(40+ 260 + 15, 262 - 55 + 140, "Derzeitige Auflösung: "+(GfxModeWidths(SelectedGFXMode) + "x" + GfxModeHeights(SelectedGFXMode) + ",32"))
+				Text(40+ 260 + 15, 262 - 55 + 140, "Derzeitige AuflÃ¶sung: "+(GfxModeWidths(SelectedGFXMode) + "x" + GfxModeHeights(SelectedGFXMode) + ",32"))
 			EndIf
 		Else
-			Text(40+ 260 + 15, 262 - 55 + 140, "Derzeitige Auflösung: "+GfxModeWidths(SelectedGFXMode) + "x" + GfxModeHeights(SelectedGFXMode) + ",32")
+			Text(40+ 260 + 15, 262 - 55 + 140, "Derzeitige AuflÃ¶sung: "+GfxModeWidths(SelectedGFXMode) + "x" + GfxModeHeights(SelectedGFXMode) + ",32")
 			If GfxModeWidths(SelectedGFXMode)<G_viewport_width Then
 				Text(40+ 260 + 65, 262 - 55 + 160, "(hochskaliert zu")
 				Text(40+ 260 + 65, 262 - 55 + 180, G_viewport_width + "x" + G_viewport_height + ",32)")
@@ -1268,7 +1268,7 @@ Function UpdateLauncher()
 		
 		UpdateCheckEnabled = DrawTick(LauncherWidth - 275, LauncherHeight - 50, UpdateCheckEnabled)
 		Color 255,255,255
-		Text LauncherWidth-250,LauncherHeight-70,"Prüfe"
+		Text LauncherWidth-250,LauncherHeight-70,"PrÃ¼fe"
 		Text LauncherWidth-250,LauncherHeight-50,"Updates beim"
 		Text LauncherWidth-250,LauncherHeight-30,"start"
 		
@@ -1552,7 +1552,7 @@ Function DrawLoading(percent%, shortloading=False)
 		
 		If percent = 100 Then 
 			If firstloop And SelectedLoadingScreen\title <> "CWM" Then PlaySound_Strict LoadTempSound(("SFX\Horror\Horror8.ogg"))
-			AAText(GraphicWidth / 2, GraphicHeight - 50, "DRÜCKE EINE BELIEBIGE TASTE UM FORTZUFAHREN", True, True)
+			AAText(GraphicWidth / 2, GraphicHeight - 50, "DRÃœCKE EINE BELIEBIGE TASTE UM FORTZUFAHREN", True, True)
 		Else
 			FlushKeys()
 			FlushMouse()
@@ -2088,7 +2088,7 @@ Function DrawOptionsTooltip(x%,y%,width%,height%,option$,value#=0,ingame%=False)
 			B = 255
 			txt2 = "Current value: "+Int(value*100)+"% (default is 100%)"
 		Case "sfxautorelease"
-			txt = Chr(34)+"Sound auto-release"+Chr(34)+" will free a sound from memory if it not used after 5 seconds. Prevents memory allocation issues."
+			txt = Chr(34)+"Automatische Soundfreigabe"+Chr(34)+" will free a sound from memory if it not used after 5 seconds. Prevents memory allocation issues."
 			R = 255
 			txt2 = "This option cannot be changed in-game."
 		Case "usertrack"
@@ -2208,28 +2208,28 @@ Function DrawMapCreatorTooltip(x%,y%,width%,height%,mapname$)
 		CloseFile f%
 	Else
 		txt[0] = Left(mapname$,Len(mapname$)-6)
-		author$ = "[Unknown]"
+		author$ = "[Unbekannt]"
 		descr$ = "[No description]"
 		ramount% = 0
 		hasForest% = False
 		hasMT% = False
 	EndIf
-	txt[1] = "Made by: "+author$
-	txt[2] = "Description: "+descr$
+	txt[1] = "Erstellt von: "+author$
+	txt[2] = "Beschreibung: "+descr$
 	If ramount > 0 Then
-		txt[3] = "Room amount: "+ramount
+		txt[3] = "Anzahl Rume: "+ramount
 	Else
-		txt[3] = "Room amount: [Unknown]"
+		txt[3] = "Anzahl Rume: [Unbekannt]"
 	EndIf
 	If hasForest Then
-		txt[4] = "Has custom forest: Yes"
+		txt[4] = "Eigener Wald: Ja"
 	Else
-		txt[4] = "Has custom forest: No"
+		txt[4] = "Eigener Wald: Nein"
 	EndIf
 	If hasMT Then
-		txt[5] = "Has custom maintenance tunnel: Yes"
+		txt[5] = "Eigener Wartungstunnel: Ja"
 	Else
-		txt[5] = "Has custom maintenance tunnel: No"
+		txt[5] = "Eigener Wartungstunnel: Nein"
 	EndIf
 	
 	lines% = GetLineAmount(txt[2],fw,fh)
